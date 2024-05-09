@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style_register.css' %}">
+{% endblock %}
+
+{% block title %} PopcornMania | Adicionar Conteúdo {% endblock %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <div class="register-title">
+            <h2>Adicionar Novo Conteúdo</h2>
+        </div>
+        <div class="tab">
+            <button class="tablink" onclick="openContent(event, 'series')">Séries</button>
+            <button class="tablink" onclick="openContent(event, 'movies')">Filmes</button>
+        </div>
+        <div id="series" class="tabcontent">
+            <div class="form-wrapper">
+                <form action="" id="add-series" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form_type" value="form-series">
+                    <label for="title">Título:</label><br>
+                    <input type="text" id="title" name="title" placeholder="Nome do Filme..."><br>
+                    <label for="genre">Género:</label><br>
+                    <input type="text" id="genre" name="genre" placeholder="Ação, Terror, Comédia, Documentário..."><br>
+                    <label for="year">Ano de Estreia:</label><br>
+                    <input type="text" id="year" name="year" placeholder="Ano de estreia..."><br>
+                    <label for="seasons">Número de Temporadas:</label><br>
+                    <input type="text" id="seasons" name="seasons" placeholder="Temporadas..."><br>
+                    <label for="actor">Atores:</label><br>
+                    <input type="text" id="actor" name="actor" placeholder="Nome dos atores principais..."><br>
+                    <label for="producer">Realizador:</label><br>
+                    <input type="text" id="producer" name="producer" placeholder="Nome do realizador..."><br>
+                    <label for="rate">Classificação:</label><br>
+                    <input type="text" id="rate" name="rate" placeholder="Classificação do filme..."><br>
+                    <label for="message">Sinopse:</label><br>
+                    <textarea name="message" id="message" rows="10" cols="30" placeholder="Breve resumo..."></textarea><br>
+                    <label for="img_url">Imagem:</label><br>
+                    <input type="text" id="img_url" name="img_url" placeholder="Url de uma imagem..."><br>
+                    <button type="submit" class="add-series">Adicionar</button>
+                </form>
+            </div>
+        </div>
+        <div id="movies" class="tabcontent">
+            <div class="form-wrapper">
+                <form action="" id="add-movie" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="form_type" value="form-movies">
+                    <label for="title">Título:</label><br>
+                    <input type="text" id="title" name="title" placeholder="Nome do Filme..."><br>
+                    <label for="genre">Género:</label><br>
+                    <input type="text" id="genre" name="genre" placeholder="Ação, Terror, Comédia, Documentário..."><br>
+                    <label for="year">Ano:</label><br>
+                    <input type="text" id="year" name="year" placeholder="Ano de estreia..."><br>
+                    <label for="primary_actor">Atores Principais:</label><br>
+                    <input type="text" id="primary_actor" name="primary_actor" placeholder="Nome dos atores principais..."><br>
+                    <label for="secondary_actor">Atores Secundários:</label><br>
+                    <input type="text" id="secondary_actor" name="secondary_actor" placeholder="Nome dos atores secundários..."><br>
+                    <label for="producer">Realizador:</label><br>
+                    <input type="text" id="producer" name="producer" placeholder="Nome do realizador..."><br>
+                    <label for="rate">Classificação:</label><br>
+                    <input type="text" id="rate" name="rate" placeholder="Classificação do filme de 0 a 10..."><br>
+                    <label for="message">Sinopse:</label><br>
+                    <textarea name="message" id="message" rows="10" cols="30" placeholder="Breve resumo..."></textarea><br>
+                    <label for="img_url">Imagem:</label><br>
+                    <input type="text" id="img_url" name="img_url" placeholder="Url de uma imagem..."><br>
+                    <button type="submit" class="add-movie">Adicionar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/openContent.js' %}"></script>
+{% endblock %}

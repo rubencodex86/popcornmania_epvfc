@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style_home.css' %}">
+{% endblock %}
+
+{% block title %} PopcornMania | Início {% endblock %}
+
+{% block content %}
+
+    <div class="top-movies">
+        <div class="title-container">
+            <h2 class="title">Filmes em Destaque</h2>
+        </div>
+        <div class="top-movies-container">
+            <ul>
+                <li>
+                {% for movies in random_movie %}
+                    <a href="{% url 'movie_info' movies.id %}">
+                        <img class="cover" src="{{ movies.img_url }}" alt="">
+                        <p class="content-title">{{ movies.title }}</p>
+                    </a>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="top-series end-div">
+        <div class="title-container">
+            <h2 class="title">Séries em Destaque</h2>
+        </div>
+        <div class="top-series-container">
+            <ul>
+                <li>
+                    {% for series in random_series %}
+                        <a href="{% url 'show_info' series.id %}">
+                            <img class="cover" src="{{ series.img_url }}" alt="">
+                            <p class="content-title">{{ series.title }}</p>
+                        </a>
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

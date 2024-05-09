@@ -1,0 +1,106 @@
+.main-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content-wrapper {
+    width: 66%;
+    background-color: #fbd434;
+    margin-top: 3.5rem;
+}
+
+.content-wrapper .content {
+    padding: 4rem;
+    display: flex;
+    gap: 3rem;
+    /*flex-wrap: wrap;*/
+    /*display: grid;*/
+    /*grid-template-columns: 1fr 1fr;*/
+}
+
+.content-wrapper .content .cover {
+    width: 350px;
+    height: 450px;
+}
+
+.content-wrapper .content ul li {
+    padding-bottom: 1.75rem;
+    font-size: 1rem;
+}
+
+.content-wrapper .content ul li span {
+    font-weight: bold;
+}
+
+#synopsis {
+    text-align: justify;
+    line-height: 1.66rem;
+}
+
+#title {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.navigation
+{
+    display: flex;
+    justify-content: space-between;
+    /*flex-direction: row-reverse;*/
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+.navigation a {
+    text-decoration: none;
+}
+
+.navigation a i {
+    font-size: 2rem;
+}
+
+.navigation .trash-icon {
+    color: #ea2a52;
+}
+.navigation .trash-icon:hover{
+    color:red;
+}
+
+.navigation .return-icon {
+    color: #223357;
+}
+
+.navigation .return-icon:hover {
+    color: blue;
+}
+
+@media only screen and (max-width: 1160px) {
+    .content-wrapper .content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    #title {
+        font-size: 1.5rem;
+    }
+    .content-wrapper .content .cover {
+    width: 250px;
+    height: 350px;
+}
+}
+
+@media only screen and (max-width: 560px) {
+    #title {
+        font-size: 1.25rem;
+    }
+
+    .content-wrapper .content .cover {
+        width: 150px;
+        height: 250px;
+    }
+}

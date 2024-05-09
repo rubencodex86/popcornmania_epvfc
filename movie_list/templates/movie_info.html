@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style_info.css' %}">
+{% endblock %}
+
+{% block title %} PopcornMania | {{ movie.title }} {% endblock %}
+
+{% block content %}
+    <div class="main-wrapper">
+        <div class="content-wrapper">
+            <div class="content">
+                <img class="cover" src="{{ movie.img_url }}" alt="movie image cover">
+                <div class="content-info">
+                    <ul>
+                        <li id="title">{{ movie.title }}</li>
+                        <li><span>Género:</span> {{ movie.genre }}</li>
+                        <li><span>Ano:</span> {{ movie.year }}</li>
+                        <li><span>Atores Principais:</span> {{ movie.primary_actor }}</li>
+                        <li><span>Atores Secundários:</span> {{ movie.secondary_actor }}</li>
+                        <li><span>Realizador:</span> {{ movie.producer }}</li>
+                        <li><span>Classificação (imdb):</span> {{ movie.rate }}</li>
+                        <li id="synopsis"><span>Sinopse:</span> {{ movie.message }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navigation">
+                <a href="{% url 'remove_movie' movie.id %}" class="trash-icon">
+                    <i class="fa-solid fa-trash-can"></i>
+                </a>
+                <a href=" {% url 'gallery' %}" class="return-icon">
+                    <i class="fa-solid fa-angles-left"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
